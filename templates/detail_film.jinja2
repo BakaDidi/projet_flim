@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détails du film</title>
+    {% include 'header.jinja2' %}
+
+</head>
+<body>
+{% include 'navbar.jinja2' %}
+<div class="container">
+    <h1>Détails du film :</h1>
+    <h2>{{ film['titre'] }}</h2>
+    <p><strong>Description :</strong> {{ film['description'] }}</p>
+    <p><strong>Année :</strong> {{ film['annee'] }}</p>
+    <p><strong>Réalisation :</strong> {{ film['realisation'] }}</p>
+    <p><strong>Producteur :</strong> {{ film['producteur'] }}</p>
+    <p><strong>Acteurs :</strong></p>
+    <ul>
+        <td>{{ film['acteurs']|join(', ') }}</td>
+
+    </ul>
+    <img height="200px" width="200px" src="{{ url_for('static', filename='images/' + film['image']) }}"
+         alt="Image">
+    <div>
+    <a class="waves-effect waves-light btn red darken-4" href="{{ url_for('supprimer_film', film_id=film['id']) }}">Supprimer ce film</a>
+    <a class="waves-effect waves-light btn blue" href="{{ url_for('modifier_film', film_id=film['id']) }}">Modifier ce film</a>
+        </div>
+</div>
+</body>
+
+</html>

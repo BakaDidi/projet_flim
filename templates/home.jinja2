@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des films</title>
+    {% include 'header.jinja2' %}
+    <style>
+        .affiche {
+            height: 300px;
+            width: 200px;
+            object-fit: cover;
+
+        }
+    </style>
+
+</head>
+<body>
+{% include 'navbar.jinja2' %}
+<div class="container">
+    <h1>Liste des films</h1>
+
+
+    {% for film in films %}
+        <div class="row">
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="affiche"
+                             src="{{ url_for('static', filename='images/' + film['image']) }}"
+                             alt="Image">
+                        <span class="card-title">{{ film['titre'] }}</span>
+                    </div>
+
+                    <div class="card-action">
+                        <a href="{{ url_for('film_detail', film_id=film['id']) }}">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+</body>
+</html>
+

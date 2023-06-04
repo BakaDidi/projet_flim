@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier un film</title>
+    {% include 'header.jinja2' %}
+
+</head>
+<body>
+{% include 'navbar.jinja2' %}
+<div class="container">
+
+    <h1>Modifier un film</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="titre">Titre :</label>
+            <input type="text" name="titre" id="titre" value="{{ film['titre'] }}" required>
+        </div>
+        <div>
+            <label for="description">Description :</label>
+            <textarea name="description" id="description">{{ film['description'] }}</textarea>
+        </div>
+        <div>
+            <label for="annee">Année :</label>
+            <input type="number" name="annee" id="annee" value="{{ film['annee'] }}">
+        </div>
+        <div>
+            <label for="realisation">Réalisation :</label>
+            <input type="text" name="realisation" id="realisation" value="{{ film['realisation'] }}">
+        </div>
+        <div>
+            <label for="producteur">Producteur :</label>
+            <input type="text" name="producteur" id="producteur" value="{{ film['producteur'] }}">
+        </div>
+        <div>
+            <label for="image">Image :</label>
+            <input type="file" name="image" id="image">
+        </div>
+        <div>
+            <label for="acteurs">Acteurs :</label>
+            <input type="text" name="acteurs" value="{{ film['acteurs'] }}"
+                   placeholder="Entrez les noms des acteurs séparés par des virgules">
+        </div>
+        <div>
+            <input class="waves-effect waves-light btn blue" type="submit" value="Modifier">
+        </div>
+    </form>
+</div>
+</body>
+</html>

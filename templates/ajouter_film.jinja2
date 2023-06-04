@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un film</title>
+        {% include 'header.jinja2' %}
+
+</head>
+<body>
+{% include 'navbar.jinja2' %}
+<div class="container">
+<h1>Ajouter un film :</h1>
+<form action="/ajouter_film" method="POST" enctype="multipart/form-data">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" required>
+
+    <label for="description">Description :</label>
+    <textarea name="description"></textarea>
+
+    <label for="annee">Année :</label>
+    <input type="number" name="annee">
+
+    <label for="realisation">Réalisation :</label>
+    <input type="text" name="realisation">
+
+    <label for="producteur">Producteur :</label>
+    <input type="text" name="producteur">
+
+    <label for="image">Image :</label>
+    <input type="file" name="image">
+
+    <label for="acteurs">Acteurs :</label>
+    <input type="text" name="acteurs" placeholder="Entrez les noms des acteurs séparés par des virgules">
+
+    <button class="waves-effect waves-light btn blue" type="submit">Ajouter le film</button>
+</form>
+</div>
+
+</body>
+</html>
